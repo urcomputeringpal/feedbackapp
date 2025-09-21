@@ -4,7 +4,33 @@ public struct ContentView: View {
     public init() {}
 
     public var body: some View {
-        ExampleScrollView()
+        TabView {
+            Tab("Home", systemImage: "house") {
+                ExampleScrollView()
+            }
+
+
+            Tab("Alerts", systemImage: "bell") {
+                ExampleScrollView()
+            }
+
+
+            TabSection("Categories") {
+                Tab("Climate", systemImage: "fan") {
+                            ExampleScrollView()
+
+                }
+
+
+                Tab("Lights", systemImage: "lightbulb") {
+                            ExampleScrollView()
+
+                }
+            }
+        }
+        .tabViewBottomAccessory {
+            MusicPlaybackView()
+        }
     }
 }
 
