@@ -6,9 +6,11 @@ struct MusicPlaybackView: View {
     var body: some View {
       switch placement {
       case .inline:
-        Text("Inline Playback View")
+        Text("Inline")
       case .expanded:
-        Text("Expanded Playback View")
+        Text("Expanded")
+      default:
+        Text("Undefined")
       }
     }
 }
