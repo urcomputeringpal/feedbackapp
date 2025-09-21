@@ -28,9 +28,17 @@ public struct ContentView: View {
                 }
             }
         }
-        .tabViewBottomAccessory {
-            MusicPlaybackView()
-        }
+         .tabViewBottomAccessory {
+             MusicPlaybackView()
+         }
+        .tabBarMinimizeBehavior(.onScrollDown)
+        .tabViewStyle(.sidebarAdaptable)
+// Not affected by bug
+//        .overlay(alignment: .top) {
+//            MusicPlaybackView(inAccessory: false)
+//            .frame(maxWidth: .infinity, maxHeight: 60)
+//            .background(.ultraThinMaterial.opacity(0.5))
+//        }
     }
 }
 
