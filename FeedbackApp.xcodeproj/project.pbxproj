@@ -6,6 +6,11 @@
 	objectVersion = 70;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		40C666DC47FF10188B0BEF26 /* TuistAssets+FeedbackApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0207F630D8280273EF4121A /* TuistAssets+FeedbackApp.swift */; };
+		4E4EB7E370701A3BA49B2879 /* TuistBundle+FeedbackApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B997159AF9201027C581EA9 /* TuistBundle+FeedbackApp.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		BA0983332F8B4FAD76825879 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -40,10 +45,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3B997159AF9201027C581EA9 /* TuistBundle+FeedbackApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistBundle+FeedbackApp.swift"; sourceTree = "<group>"; };
 		634FEE418CCD8E04264B3FFD /* FeedbackApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeedbackApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76D2FD80E890890E98EFFDC3 /* FeedbackApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "FeedbackApp-Info.plist"; sourceTree = "<group>"; };
 		B4B8CA4D51FCEF5DC2622009 /* FeedbackAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "FeedbackAppTests-Info.plist"; sourceTree = "<group>"; };
 		B876D75636A9514D3A343754 /* FeedbackAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FeedbackAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0207F630D8280273EF4121A /* TuistAssets+FeedbackApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistAssets+FeedbackApp.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -70,6 +77,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0FC494490FA8F10CDD279CC3 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				E0207F630D8280273EF4121A /* TuistAssets+FeedbackApp.swift */,
+				3B997159AF9201027C581EA9 /* TuistBundle+FeedbackApp.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
 		11D9A0358D92E12A60503A72 /* Project */ = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				1E8531F20170B2C33DC8EF25 /* InfoPlists */,
+				0FC494490FA8F10CDD279CC3 /* Sources */,
 			);
 			path = Derived;
 			sourceTree = "<group>";
@@ -99,8 +116,8 @@
 		7005EBB1A32ADF4531458987 = {
 			isa = PBXGroup;
 			children = (
-				11D9A0358D92E12A60503A72 /* Project */,
 				CED2200F0450D039FF24F63E /* Products */,
+				11D9A0358D92E12A60503A72 /* Project */,
 			);
 			sourceTree = "<group>";
 		};
@@ -228,6 +245,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40C666DC47FF10188B0BEF26 /* TuistAssets+FeedbackApp.swift in Sources */,
+				4E4EB7E370701A3BA49B2879 /* TuistBundle+FeedbackApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +302,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = X5RYB6DN28;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Derived/InfoPlists/FeedbackApp-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -368,6 +388,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = X5RYB6DN28;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Derived/InfoPlists/FeedbackApp-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
