@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct ContentView: View {
+  @State var tabViewBottomAccessoryIsEnabled = true
   var body: some View {
     TabView {
       Tab("Home", systemImage: "house") { DemoView(prefix: "Home") }
@@ -9,8 +10,15 @@ struct ContentView: View {
         Tab("Climate", systemImage: "fan") { DemoView(prefix: "Climate") }
         Tab("Lights", systemImage: "lightbulb") { DemoView(prefix: "Lights") }
       }
+      Tab("Settings", systemImage: "gear") {
+        List {
+          Toggle("Tab accessory enabled", isOn: $tabViewBottomAccessoryIsEnabled)
+        }
+      }
     }
-    .tabViewBottomAccessory { MusicPlaybackView() }
+    .tabViewBottomAccessory(isEnabled: tabViewBottomAccessoryIsEnabled) {
+      MusicPlaybackView()
+    }
     .tabBarMinimizeBehavior(.onScrollDown)
   }
 }
