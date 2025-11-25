@@ -48,10 +48,17 @@ struct SliderPlaybackView: View {
   var body: some View {
     HStack {
       if showOptionA { Text("Slider A") } else { Text("Slider B") }
+      Spacer()
+      Menu {
       Button {
         showOptionA.toggle()
       } label: {
         if showOptionA { Text("Option A") } else { Text("Option B") }
+      }
+      } label: {
+        Image(systemName: "ellipsis.circle")
+          .imageScale(.large)
+          .padding(.horizontal)
       }
     }
     .animation(.default, value: showOptionA)
