@@ -1,68 +1,80 @@
 import SwiftUI
 
 struct ContentView: View {
-  @State var tabViewBottomAccessoryIsEnabled = true
+  @State var showMoreTabs = true
+
+  struct DemoTab: View {
+    var body: some View { Text(String(describing: type(of: self))) }
+  }
+
   var body: some View {
     TabView {
-      Tab("Home", systemImage: "house") { DemoView(prefix: "Home") }
-      Tab("Alerts", systemImage: "bell") { DemoView(prefix: "Alerts") }
-      TabSection("Categories") {
-        Tab("Climate", systemImage: "fan") { DemoView(prefix: "Climate") }
-        Tab("Lights", systemImage: "lightbulb") { DemoView(prefix: "Lights") }
+      Tab("Home", systemImage: "house") { DemoTab() }
+      Tab("Alerts", systemImage: "bell") { DemoTab() }
+      if showMoreTabs {
+        TabSection("Categories") {
+          Tab("Climate", systemImage: "fan") { DemoTab() }
+          Tab("Lights", systemImage: "lightbulb") { DemoTab() }
+        }
       }
       Tab("Settings", systemImage: "gear") {
         List {
-          Toggle("Tab accessory enabled", isOn: $tabViewBottomAccessoryIsEnabled)
+          Toggle("Show more Tabs", isOn: $showMoreTabs)
         }
       }
     }
-    .tabViewBottomAccessory(isEnabled: tabViewBottomAccessoryIsEnabled) {
-      MusicPlaybackView()
+    .tabViewBottomAccessory {
+      AccessoryView()
+    }
+    .task {
+      while true {
+        try? await Task.sleep(for: .seconds(5))
+        if Task.isCancelled { break }
+        print("toggling showMoreTabs")
+        showMoreTabs.toggle()
+      }
     }
     .tabBarMinimizeBehavior(.onScrollDown)
   }
 }
 
-struct DemoView: View {
-  let prefix: String
-  var body: some View {
-    List(0..<50, id: \.self) { i in
-      Text("\(prefix) Item #\(i + 1)")
-    }
-  }
-}
-
-struct MusicPlaybackView: View {
-  @Environment(\.tabViewBottomAccessoryPlacement) var placement
-  var body: some View {
-    if placement == .inline { ControlsPlaybackView() } else { SliderPlaybackView() }
-  }
-}
-
-struct ControlsPlaybackView: View {
-  var body: some View { Text("Controls") }
-}
-
-struct SliderPlaybackView: View {
-  @State private var showOptionA = true
+struct AccessoryView: View {
   var body: some View {
     HStack {
-      if showOptionA { Text("Slider A") } else { Text("Slider B") }
-      Spacer()
-      Menu {
-      Button {
-        showOptionA.toggle()
-      } label: {
-        if showOptionA { Text("Option A") } else { Text("Option B") }
-      }
-      } label: {
-        Image(systemName: "ellipsis.circle")
-          .imageScale(.large)
-          .padding(.horizontal)
-      }
+      EnvironmentAccess()
+      WithState()
+      Stateless()
     }
-    .animation(.default, value: showOptionA)
   }
 }
+
+struct EnvironmentAccess: View {
+  @Environment(\.tabViewBottomAccessoryPlacement) var placement
+
+  var body: some View {
+    // FIXME: EnvironmentAccess: @self, @identity, _placement changed.
+    // Identity should be stable
+    let _ = Self._printChanges()
+    Text(String(describing: type(of: self)))  }
+}
+
+struct WithState: View {
+  @State var int = Int.random(in: 0...100)
+  var body: some View {
+    // FIXME: WithState: @self, @identity, _placement changed.
+    // Identity should be stable
+    let _ = Self._printChanges()
+    Text(String(describing: type(of: self)))
+  }
+}
+
+struct Stateless: View {
+  var body: some View {
+    // Works as expected: Stateless: @self changed.
+    let _ = Self._printChanges()
+    Text(String(describing: type(of: self)))
+  }
+}
+
 
 #Preview { ContentView() }
