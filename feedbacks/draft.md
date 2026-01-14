@@ -10,8 +10,8 @@ Views placed inside `tabViewBottomAccessory` that access `@Environment` values o
 
 ## Environment
 
-- Xcode Version 26.x
-- iOS 26.x
+- Xcode Version 26.2 (17C52)
+- iOS 26.2 simulator and device
 
 ## Steps to Reproduce
 
