@@ -61,7 +61,7 @@ struct EnvironmentAccess: View {
 struct WithState: View {
   @State var int = Int.random(in: 0...100)
   var body: some View {
-    // FIXME: WithState: @self, @identity, _placement changed.
+    // FIXME: WithState: @self, @identity, _id changed.
     // Identity should be stable
     let _ = Self._printChanges()
     Text(String(describing: type(of: self)))
